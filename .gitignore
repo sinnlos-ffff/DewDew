@@ -1,0 +1,11 @@
+# Front
+
+node_modules
+
+# Backend
+
+env/
+
+# Common
+
+.env
