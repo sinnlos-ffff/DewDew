@@ -1,0 +1,1 @@
+# archisketch_detailpage
