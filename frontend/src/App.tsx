@@ -1,5 +1,7 @@
 import { Provider } from 'react-redux'
-import Mainpage from './pages/Mainpage'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import DailyPick from './pages/DailyPick'
+import MainPage from './pages/Mainpage'
 import store from './store'
 import './styles.css'
 
@@ -7,7 +9,12 @@ export const App = () => {
   return (
     <>
       <Provider store={store}>
-        <Mainpage />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/daily_pick" element={<DailyPick />} />
+          </Routes>
+        </BrowserRouter>
       </Provider>
     </>
   )

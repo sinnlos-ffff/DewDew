@@ -1,22 +1,19 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function Mainpage() {
-  const [playlist, setPlaylist] = useState()
-  useEffect(() => {
-    async function getPlaylist() {
-      const response = await axios.get('http://127.0.0.1:8000/api/daily_pick')
-      console.log(response.data)
-      setPlaylist(response.data)
-    }
-    getPlaylist()
-  }, [])
+function MainPage() {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/daily_pick')
+  }
 
   return (
     <>
-      <div>success</div>
+      <div>
+        <button onClick={handleClick}>Today's pick</button>
+      </div>
     </>
   )
 }
 
-export default Mainpage
+export default MainPage
