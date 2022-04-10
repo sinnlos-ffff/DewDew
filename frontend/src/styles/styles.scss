@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Rubik+Wet+Paint&family=Work+Sans:wght@300;600&display=swap');
+
+@import './mixin';
+@import './glassboard';
+@import './header';
+@import './artist-info';
+
+@include mobile {
+  .glassboard {
+    width: 80%;
+  }
+  .heading-container {
+    width: 75%;
+    h1 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@include tablet {
+  .glassboard {
+    width: 66%;
+  }
+  .heading-container {
+    width: 75%;
+
+    h1 {
+      font-size: 4rem;
+    }
+  }
+}
+
+@include desktop {
+  .glassboard {
+    width: 50%;
+  }
+  .heading-container {
+    width: 50%;
+  }
+  .glassbutton {
+    width: 50%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 30, 102, 1) 0%,
+    rgba(121, 9, 118, 1) 34%,
+    rgba(8, 119, 142, 1) 71%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}

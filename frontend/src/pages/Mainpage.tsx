@@ -1,16 +1,18 @@
-import { useNavigate } from 'react-router-dom'
+import GlassMainboard from '../components/GlassMainboard'
+import Header from '../components/Header'
 
 function MainPage() {
-  const navigate = useNavigate()
-
-  const handleClick = () => {
-    navigate('/daily_pick')
-  }
-
   return (
     <>
-      <div>
-        <button onClick={handleClick}>Today's pick</button>
+      <Header />
+      <div className="heading-container">
+        <h1 id="heading">
+          Pick an artist whose music is going to get stuck in your head for
+          today!
+        </h1>
+      </div>
+      <div className="glass-container">
+        <GlassMainboard />
       </div>
     </>
   )

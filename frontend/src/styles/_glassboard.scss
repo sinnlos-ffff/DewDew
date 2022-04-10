@@ -1,0 +1,47 @@
+@mixin AlignVertical($directino) {
+  display: flex;
+  justify-content: center;
+  flex-direction: $directino;
+}
+
+.glassboard {
+  width: 60%;
+  height: 40%;
+  padding: 2rem 2rem;
+  margin: 0 auto;
+  display: flex;
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  @include AlignVertical(column);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-container {
+  width: 100%;
+  @include AlignVertical(column);
+}
+
+.glassbutton {
+  margin: 1.5rem auto;
+  padding: 1rem;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.5);
+  transition-duration: 0.5s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.9);
+  }
+}

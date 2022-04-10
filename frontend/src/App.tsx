@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import DailyPick from './pages/DailyPick'
-import MainPage from './pages/Mainpage'
+import MainPage from './pages/MainPage'
 import store from './store'
-import './styles.css'
+import './styles/styles.css'
 
 export const App = () => {
   return (

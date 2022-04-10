@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Rubik+Wet+Paint&family=Work+Sans:wght@300;600&display=swap");
+.glassboard {
+  width: 60%;
+  height: 40%;
+  padding: 2rem 2rem;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: rgba(255, 255, 255, 0.35);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10.5px);
+  -webkit-backdrop-filter: blur(10.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.glassbutton {
+  margin: 1.5rem auto;
+  padding: 1rem;
+  width: 80%;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.glassbutton:hover {
+  background: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.header {
+  width: 100%;
+  margin: 1rem 2rem;
+}
+
+.header button {
+  font-family: 'Rubik Wet Paint', cursive;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.heading-container {
+  width: 100%;
+  margin: 4rem auto;
+}
+
+.heading-container h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5em;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+#artist-name {
+  margin: 1rem auto;
+  font-size: 4rem;
+}
+
+#artist-image {
+  margin: 1rem auto;
+  width: 40%;
+}
+
+#tag-wrapper {
+  margin: 1rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#genre-tag-wrap {
+  margin: 0.5rem 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
+  -webkit-box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 1rem;
+}
+
+#genre-tag {
+  opacity: 1;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: -1px 0 rgba(180, 180, 180, 0.18), 0 1px rgba(180, 180, 180, 0.18), 1px 0 rgba(180, 180, 180, 0.18), 0 -1px rgba(180, 180, 180, 0.18);
+}
+
+@media (min-width: 335px) and (max-width: 757px) {
+  .glassboard {
+    width: 80%;
+  }
+  .heading-container {
+    width: 75%;
+  }
+  .heading-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .glassboard {
+    width: 66%;
+  }
+  .heading-container {
+    width: 75%;
+  }
+  .heading-container h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .glassboard {
+    width: 50%;
+  }
+  .heading-container {
+    width: 50%;
+  }
+  .glassbutton {
+    width: 50%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff1e66), color-stop(34%, #790976), color-stop(71%, #08778e), to(#00d4ff));
+  background: linear-gradient(180deg, #ff1e66 0%, #790976 34%, #08778e 71%, #00d4ff 100%);
+}
+/*# sourceMappingURL=styles.css.map */

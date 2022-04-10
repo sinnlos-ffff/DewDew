@@ -31,16 +31,17 @@ class PickArtistNewReleaseAPIView(APIView):
 
         if slug == 'new_release':
 
-            releases = sp.new_releases(country='KR', limit=20)
+            releases = sp.new_releases(country='KR', limit=50)
             
-            pick_num = random.randint(0,19)
+            pick_num = random.randint(0,49)
 
             artists= releases["albums"]["items"]
             
             artist_url = artists[pick_num]["artists"][0]["uri"]
         
             artist_pick = sp.artist(artist_url)
-
+            top_tracks = sp.artist_top_tracks(artist_id=artist_url, country='KR')
         return Response({
-            'artist': artist_pick
+            'artist': artist_pick,
+            'top_tracks': top_tracks
         })
