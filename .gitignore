@@ -5,9 +5,11 @@ node_modules
 # Backend
 
 env/
-.cache
+cache
 db.sqlite3
+backend/.cache
 
 # Common
 
 .env
+

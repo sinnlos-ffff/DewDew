@@ -40,7 +40,7 @@ function DailyPick() {
           {artist.genres.map((genre: string, idx: number) => {
             return (
               <div id="genre-tag-wrap" key={`${idx}-genre-tag-wrap`}>
-                <text id="genre-tag">{genre}</text>
+                <p id="genre-tag">{genre}</p>
               </div>
             )
           })}

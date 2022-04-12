@@ -5,7 +5,7 @@
 @import './header';
 @import './artist-info';
 @import './preview-player';
-
+@import './loader';
 @include mobile {
   .glassboard {
     width: 80%;

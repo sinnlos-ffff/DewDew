@@ -1,73 +1,88 @@
 import { useEffect, useRef, useState } from 'react'
+import PreviewPlayer from './PreviewPlayer'
 
 interface AudioProps {
   topTracks: any
 }
 
 function PreviewPlayers({ topTracks }: AudioProps) {
-  const audioObject1 = useRef<HTMLAudioElement>(
-    new Audio(topTracks[0].preview_url)
-  )
-  const audioObject2 = useRef<HTMLAudioElement>(
-    new Audio(topTracks[1].preview_url)
-  )
-  const audioObject3 = useRef<HTMLAudioElement>(
-    new Audio(topTracks[2].preview_url)
-  )
+  const [isPlaying, setIsPlaying] = useState<number>(-1)
+  const audioObject = useRef<HTMLAudioElement>(new Audio())
 
-  const pauseAll = () => {
-    audioObject1.current.pause()
-    audioObject2.current.pause()
-    audioObject3.current.pause()
+  audioObject.current.onended = function () {
+    setIsPlaying(-1)
+  }
+
+  const pauseAudio = () => {
+    audioObject.current.pause()
+    setIsPlaying(-1)
   }
 
   useEffect(() => {
     return function cleanup() {
-      pauseAll()
+      pauseAudio()
     }
-  })
+  }, [])
 
   return (
     <>
-      <div>
-        <p>{topTracks[0].name}</p>
-        <p>{topTracks[0].album.name}</p>
-        <button
-          onClick={() => {
-            pauseAll()
-            audioObject1.current.play()
+      {topTracks[0].preview_url && (
+        <PreviewPlayer
+          playerNumber={0}
+          trackName={topTracks[0].name}
+          albumName={topTracks[0].album.name}
+          isPlaying={isPlaying}
+          onPlay={async () => {
+            setIsPlaying(0)
+            if (audioObject.current.src != topTracks[0].preview_url) {
+              audioObject.current.src = topTracks[0].preview_url
+            }
+            await audioObject.current.play()
           }}
-        >
-          play
-        </button>
-        <button onClick={() => audioObject1.current.pause()}>stop</button>
-      </div>
-      <div>
-        <p>{topTracks[1].name}</p>
-        <p>{topTracks[1].album.name}</p>
-        <button
-          onClick={() => {
-            pauseAll()
-            audioObject2.current.play()
+          onPause={() => {
+            setIsPlaying(-1)
+            audioObject.current.pause()
           }}
-        >
-          play
-        </button>
-        <button onClick={() => audioObject2.current.pause()}>stop</button>
-      </div>
-      <div>
-        <p>{topTracks[2].name}</p>
-        <p>{topTracks[2].album.name}</p>
-        <button
-          onClick={() => {
-            pauseAll()
-            audioObject3.current.play()
+        />
+      )}
+      {topTracks[1].preview_url && (
+        <PreviewPlayer
+          playerNumber={1}
+          trackName={topTracks[1].name}
+          albumName={topTracks[1].album.name}
+          isPlaying={isPlaying}
+          onPlay={async () => {
+            setIsPlaying(1)
+            if (audioObject.current.src != topTracks[1].preview_url) {
+              audioObject.current.src = topTracks[1].preview_url
+            }
+            await audioObject.current.play()
           }}
-        >
-          play
-        </button>
-        <button onClick={() => audioObject3.current.pause()}>stop</button>
-      </div>
+          onPause={() => {
+            setIsPlaying(-1)
+            audioObject.current.pause()
+          }}
+        />
+      )}
+      {topTracks[2].preview_url && (
+        <PreviewPlayer
+          playerNumber={2}
+          trackName={topTracks[2].name}
+          albumName={topTracks[2].album.name}
+          isPlaying={isPlaying}
+          onPlay={async () => {
+            setIsPlaying(2)
+            if (audioObject.current.src != topTracks[2].preview_url) {
+              audioObject.current.src = topTracks[2].preview_url
+            }
+            await audioObject.current.play()
+          }}
+          onPause={() => {
+            setIsPlaying(-1)
+            audioObject.current.pause()
+          }}
+        />
+      )}
     </>
   )
 }
