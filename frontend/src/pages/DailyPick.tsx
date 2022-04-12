@@ -33,7 +33,7 @@ function DailyPick() {
     <>
       <Header />
       <div className="glassboard">
-        <p id="artist-name">{artist.name}</p>
+        <h2 id="artist-name">{artist.name}</h2>
         <article></article>
         <img id="artist-image" src={artist.images[0].url} />
         <div id="tag-wrapper">

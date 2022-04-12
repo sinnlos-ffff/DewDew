@@ -26,6 +26,7 @@ function PreviewPlayers({ topTracks }: AudioProps) {
 
   return (
     <>
+      <h3>Popular tracks</h3>
       {topTracks[0].preview_url && (
         <PreviewPlayer
           playerNumber={0}

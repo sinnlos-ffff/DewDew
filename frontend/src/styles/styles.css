@@ -88,6 +88,8 @@
 #artist-name {
   margin: 1rem auto;
   font-size: 4rem;
+  text-align: center;
+  width: 100%;
 }
 
 #artist-image {
@@ -283,6 +285,12 @@
 @media (min-width: 335px) and (max-width: 757px) {
   .glassboard {
     width: 80%;
+  }
+  .glassboard #artist-name {
+    font-size: 2.5rem;
+  }
+  .glassboard #genre-tag-wrap {
+    font-size: 0.7rem;
   }
   .heading-container {
     width: 75%;

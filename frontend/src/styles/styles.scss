@@ -9,6 +9,13 @@
 @include mobile {
   .glassboard {
     width: 80%;
+    #artist-name {
+      font-size: 2.5rem;
+    }
+
+    #genre-tag-wrap {
+      font-size: 0.7rem;
+    }
   }
   .heading-container {
     width: 75%;
