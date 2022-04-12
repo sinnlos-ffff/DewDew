@@ -5,6 +5,8 @@ node_modules
 # Backend
 
 env/
+.cache
+db.sqlite3
 
 # Common
 
