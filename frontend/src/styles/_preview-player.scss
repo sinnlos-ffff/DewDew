@@ -1,0 +1,38 @@
+.player-container {
+  @include AlignWithFlex(horizontal);
+
+  margin: 0.5rem 1rem;
+  justify-content: space-between;
+  div.name-container {
+    @include AlignWithFlex(column);
+  }
+  div.button-container {
+    @include AlignWithFlex(horizontal);
+    button {
+      @include AlignWithFlex(horizontal);
+      margin: auto 0.5rem auto 0;
+      fill: rgba(255, 255, 255, 0.6);
+      transition-duration: 0.3s;
+      &:hover {
+        fill: rgba(255, 30, 102, 0.7);
+      }
+    }
+    .is-playing {
+      fill: rgba(255, 30, 102, 0.7);
+    }
+
+    .not-playing {
+      fill: rgba(255, 255, 255, 0.6);
+    }
+  }
+}
+
+.track-name {
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+
+.album-name {
+  font-size: 0.7rem;
+  margin: 0.2rem 0;
+}

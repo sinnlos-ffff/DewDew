@@ -3,7 +3,7 @@
   width: 60%;
   height: 40%;
   padding: 2rem 2rem;
-  margin: 0 auto;
+  margin: 3rem auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,8 +53,8 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: rgba(255, 255, 255, 0.5);
-  -webkit-transition-duration: 0.5s;
-          transition-duration: 0.5s;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
 }
 
 .glassbutton:hover {
@@ -129,6 +129,88 @@
   text-shadow: -1px 0 rgba(180, 180, 180, 0.18), 0 1px rgba(180, 180, 180, 0.18), 1px 0 rgba(180, 180, 180, 0.18), 0 -1px rgba(180, 180, 180, 0.18);
 }
 
+.player-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: horizontal;
+          flex-direction: horizontal;
+  margin: 0.5rem 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.player-container div.name-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.player-container div.button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: horizontal;
+          flex-direction: horizontal;
+}
+
+.player-container div.button-container button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: horizontal;
+          flex-direction: horizontal;
+  margin: auto 0.5rem auto 0;
+  fill: rgba(255, 255, 255, 0.6);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.player-container div.button-container button:hover {
+  fill: rgba(255, 30, 102, 0.7);
+}
+
+.player-container div.button-container .is-playing {
+  fill: rgba(255, 30, 102, 0.7);
+}
+
+.player-container div.button-container .not-playing {
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+.track-name {
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+}
+
+.album-name {
+  font-size: 0.7rem;
+  margin: 0.2rem 0;
+}
+
 @media (min-width: 335px) and (max-width: 757px) {
   .glassboard {
     width: 80%;
@@ -138,6 +220,27 @@
   }
   .heading-container h1 {
     font-size: 2rem;
+  }
+  .player-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .player-container div.button-container {
+    margin: 0.2rem 0 0.2rem auto;
+  }
+  #artist-image {
+    width: 80%;
+  }
+  .glassbutton {
+    font-size: 1rem;
   }
 }
 
@@ -150,6 +253,9 @@
   }
   .heading-container h1 {
     font-size: 4rem;
+  }
+  .glassbutton {
+    width: 60%;
   }
 }
 
@@ -186,7 +292,7 @@ html,
 body {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {

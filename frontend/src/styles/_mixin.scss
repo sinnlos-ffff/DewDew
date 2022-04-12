@@ -17,3 +17,9 @@
     @content;
   }
 }
+
+@mixin AlignWithFlex($directino) {
+  display: flex;
+  justify-content: center;
+  flex-direction: $directino;
+}
