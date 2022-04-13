@@ -41,7 +41,7 @@
           flex-direction: column;
 }
 
-.glassbutton {
+.glassbutton, .glassbutton-mini {
   margin: 1.5rem auto;
   padding: 1rem;
   width: 80%;
@@ -57,9 +57,17 @@
           transition-duration: 0.3s;
 }
 
-.glassbutton:hover {
+.glassbutton:hover, .glassbutton-mini:hover {
   background: rgba(255, 255, 255, 0.4);
   color: rgba(255, 255, 255, 0.9);
+}
+
+.glassbutton-mini {
+  margin: 0.5rem 0.5rem;
+  padding: 0.5rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .header {
@@ -316,7 +324,7 @@
   #artist-image {
     width: 80%;
   }
-  .glassbutton {
+  .glassbutton, .glassbutton-mini {
     font-size: 1rem;
   }
 }
@@ -331,7 +339,7 @@
   .heading-container h1 {
     font-size: 4rem;
   }
-  .glassbutton {
+  .glassbutton, .glassbutton-mini {
     width: 60%;
   }
 }
@@ -343,7 +351,7 @@
   .heading-container {
     width: 50%;
   }
-  .glassbutton {
+  .glassbutton, .glassbutton-mini {
     width: 50%;
   }
 }

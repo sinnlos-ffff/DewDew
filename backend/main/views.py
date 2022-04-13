@@ -16,23 +16,23 @@ load_dotenv()
 
 SPOTIPY_REDIRECT_URI = os.getenv('SPOTIPY_REDIRECT_URI')
 
-# Create your views here.
-
-def index(request):
-    return HttpResponse('hello')
-
-class GetCategoriesAPIView(APIView):
-    def get(self, request, slug):
-        return
-
-class PickArtistAPIView(APIView):
-    def get(self, request, slug):
-        auth_manager = SpotifyClientCredentials(
+auth_manager = SpotifyClientCredentials(
         client_id=os.environ.get('SPOTIPY_CLIENT_ID'), 
         client_secret=os.environ.get('SPOTIPY_CLIENT_SECRET'),
         )
-        sp = spotipy.Spotify(auth_manager=auth_manager)
+sp = spotipy.Spotify(auth_manager=auth_manager)
 
+# Create your views here.
+
+class GetCategoriesAPIView(APIView):
+    def get(self, request):
+        categories = sp.categories(locale="KR")
+        return Response({
+            'categories': categories
+        })
+
+class PickArtistAPIView(APIView):
+    def get(self, request, slug):
         if slug == 'new_release':
             releases = sp.new_releases(country='KR', limit=50)
             
