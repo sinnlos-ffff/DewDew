@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
-from .views import PickArtistNewReleaseAPIView
+from .views import PickArtistAPIView
 urlpatterns = [
     path('main', views.index, name='home'),
-    path('daily_pick/<slug:slug>', PickArtistNewReleaseAPIView.as_view() )
+    path('daily_pick/<slug:slug>', PickArtistAPIView.as_view() )
 ]

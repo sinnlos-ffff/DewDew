@@ -21,7 +21,11 @@ SPOTIPY_REDIRECT_URI = os.getenv('SPOTIPY_REDIRECT_URI')
 def index(request):
     return HttpResponse('hello')
 
-class PickArtistNewReleaseAPIView(APIView):
+class GetCategoriesAPIView(APIView):
+    def get(self, request, slug):
+        return
+
+class PickArtistAPIView(APIView):
     def get(self, request, slug):
         auth_manager = SpotifyClientCredentials(
         client_id=os.environ.get('SPOTIPY_CLIENT_ID'), 
@@ -30,18 +34,24 @@ class PickArtistNewReleaseAPIView(APIView):
         sp = spotipy.Spotify(auth_manager=auth_manager)
 
         if slug == 'new_release':
-
             releases = sp.new_releases(country='KR', limit=50)
             
             pick_num = random.randint(0,49)
 
             artists= releases["albums"]["items"]
             
+            pick = artists[pick_num]
+            new_track = sp.search(q={
+                "album":pick["name"],
+                "artist":pick["artists"][0]["name"]
+            })["tracks"]["items"][0]
             artist_url = artists[pick_num]["artists"][0]["uri"]
         
             artist_pick = sp.artist(artist_url)
             top_tracks = sp.artist_top_tracks(artist_id=artist_url, country='KR')
-        return Response({
-            'artist': artist_pick,
-            'top_tracks': top_tracks
-        })
+            return Response({
+                'artist': artist_pick,
+                'top_tracks': top_tracks,
+                'new_track': new_track,
+            })
+    

@@ -8,6 +8,7 @@ env/
 cache
 db.sqlite3
 backend/.cache
+backend/main/__pycache__
 
 # Common
 

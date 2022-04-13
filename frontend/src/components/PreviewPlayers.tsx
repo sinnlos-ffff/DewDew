@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import PreviewPlayer from './PreviewPlayer'
 
 interface AudioProps {
-  topTracks: any
+  tracks: any
 }
 
-function PreviewPlayers({ topTracks }: AudioProps) {
+function PreviewPlayers({ tracks }: AudioProps) {
   const [isPlaying, setIsPlaying] = useState<number>(-1)
   const audioObject = useRef<HTMLAudioElement>(new Audio())
 
@@ -26,64 +26,58 @@ function PreviewPlayers({ topTracks }: AudioProps) {
 
   return (
     <>
-      <h3>Popular tracks</h3>
-      {topTracks[0].preview_url && (
+      {tracks[0].preview_url && <h3>New Release</h3>}
+      {tracks[0].preview_url && (
         <PreviewPlayer
+          key={`preview-player-newtrack${0}`}
           playerNumber={0}
-          trackName={topTracks[0].name}
-          albumName={topTracks[0].album.name}
+          trackName={tracks[0].name}
+          albumName={tracks[0].album.name}
           isPlaying={isPlaying}
           onPlay={async () => {
             setIsPlaying(0)
-            if (audioObject.current.src != topTracks[0].preview_url) {
-              audioObject.current.src = topTracks[0].preview_url
+            if (audioObject.current.src != tracks[0].preview_url) {
+              audioObject.current.src = tracks[0].preview_url
             }
             await audioObject.current.play()
           }}
           onPause={() => {
-            setIsPlaying(-1)
-            audioObject.current.pause()
-          }}
-        />
-      )}
-      {topTracks[1].preview_url && (
-        <PreviewPlayer
-          playerNumber={1}
-          trackName={topTracks[1].name}
-          albumName={topTracks[1].album.name}
-          isPlaying={isPlaying}
-          onPlay={async () => {
-            setIsPlaying(1)
-            if (audioObject.current.src != topTracks[1].preview_url) {
-              audioObject.current.src = topTracks[1].preview_url
+            if (isPlaying == 0) {
+              setIsPlaying(-1)
+              audioObject.current.pause()
             }
-            await audioObject.current.play()
-          }}
-          onPause={() => {
-            setIsPlaying(-1)
-            audioObject.current.pause()
           }}
         />
       )}
-      {topTracks[2].preview_url && (
-        <PreviewPlayer
-          playerNumber={2}
-          trackName={topTracks[2].name}
-          albumName={topTracks[2].album.name}
-          isPlaying={isPlaying}
-          onPlay={async () => {
-            setIsPlaying(2)
-            if (audioObject.current.src != topTracks[2].preview_url) {
-              audioObject.current.src = topTracks[2].preview_url
-            }
-            await audioObject.current.play()
-          }}
-          onPause={() => {
-            setIsPlaying(-1)
-            audioObject.current.pause()
-          }}
-        />
-      )}
+      {(tracks[1].preview_url ||
+        tracks[2].preview_url ||
+        tracks[3].preview_url) && <h3>Popular tracks</h3>}
+      {[1, 2, 3].map((i, _) => {
+        if (tracks[i].preview_url) {
+          return (
+            <PreviewPlayer
+              key={`preview-player-toptrack${i}`}
+              playerNumber={i}
+              trackName={tracks[i].name}
+              albumName={tracks[i].album.name}
+              isPlaying={isPlaying}
+              onPlay={async () => {
+                setIsPlaying(i)
+                if (audioObject.current.src != tracks[i].preview_url) {
+                  audioObject.current.src = tracks[i].preview_url
+                }
+                await audioObject.current.play()
+              }}
+              onPause={() => {
+                if (isPlaying == i) {
+                  setIsPlaying(-1)
+                  audioObject.current.pause()
+                }
+              }}
+            />
+          )
+        }
+      })}
     </>
   )
 }

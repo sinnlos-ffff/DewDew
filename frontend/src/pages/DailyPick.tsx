@@ -7,7 +7,7 @@ import randomColour from '../utils/randomColour'
 
 function DailyPick() {
   const [artist, setArtist] = useState<any>()
-  const [topTracks, setTopTracks] = useState<any>()
+  const [tracks, setTracks] = useState<any>()
   const [reload, setReload] = useState<number>(0)
 
   const handleReload = () => {
@@ -20,7 +20,10 @@ function DailyPick() {
         'http://127.0.0.1:8000/api/daily_pick/new_release'
       )
       setArtist(response.data.artist)
-      setTopTracks(response.data.top_tracks.tracks)
+      const tracks = response.data.top_tracks.tracks
+      tracks.unshift(response.data.new_track)
+      setTracks(tracks)
+      console.log(tracks)
     }
     getArtist()
   }, [reload])
@@ -45,7 +48,7 @@ function DailyPick() {
             )
           })}
         </div>
-        {topTracks && <PreviewPlayers topTracks={topTracks} />}
+        {tracks && <PreviewPlayers tracks={tracks} />}
         <button className="glassbutton" onClick={handleReload}>
           Want someone else?
         </button>
