@@ -33,11 +33,12 @@ function GlassMainboard() {
         {categories &&
           categories.map((c: any, idx: number) => {
             const name = c.name
+            const id = c.id
             return (
               <button
                 key={`category-${idx}`}
                 className="glassbutton-mini"
-                onClick={() => handleClick(name)}
+                onClick={() => handleClick(id)}
               >
                 {name}
               </button>
