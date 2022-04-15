@@ -1,23 +1,23 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import PreviewPlayers from '../components/PreviewPlayers'
-import randomColour from '../utils/randomColour'
 
 function DailyPick() {
   const [artist, setArtist] = useState<any>()
   const [tracks, setTracks] = useState<any>()
   const [reload, setReload] = useState<number>(0)
+  const slug = useParams().slug
 
   const handleReload = () => {
-    window.history.go()
+    window.location.reload()
   }
 
   useEffect(() => {
     async function getArtist() {
       const response = await axios.get(
-        'http://127.0.0.1:8000/api/daily_pick/new_release'
+        `http://127.0.0.1:8000/api/daily_pick/${slug}`
       )
       setArtist(response.data.artist)
       const tracks = response.data.top_tracks.tracks

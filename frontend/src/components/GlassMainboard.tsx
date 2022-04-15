@@ -22,7 +22,10 @@ function GlassMainboard() {
   return (
     <div className="glassboard">
       <p>You want to listen to someone who...</p>
-      <button className="glassbutton" onClick={() => handleClick('')}>
+      <button
+        className="glassbutton"
+        onClick={() => handleClick('new_release')}
+      >
         Released new music
       </button>
       <p>Or choose from one of the categories</p>

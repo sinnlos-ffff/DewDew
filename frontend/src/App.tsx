@@ -12,7 +12,8 @@ export const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<MainPage />} />
-            <Route path="/daily_pick" element={<DailyPick />} />
+            <Route path="/daily_pick/:slug" element={<DailyPick />} />
+            <Route path="*" element={<MainPage />} />
           </Routes>
         </BrowserRouter>
       </Provider>
