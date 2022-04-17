@@ -1,6 +1,7 @@
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import DailyPick from './pages/DailyPick'
+import ErrorPage from './pages/ErrorPage'
 import MainPage from './pages/MainPage'
 import store from './store'
 import './styles/styles.css'
@@ -13,7 +14,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/daily_pick/:slug" element={<DailyPick />} />
-            <Route path="*" element={<MainPage />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </Provider>
