@@ -25,9 +25,13 @@ function DailyPick() {
         const tracks = response.data.top_tracks.tracks
         tracks.unshift(response.data.new_track)
         setTracks(tracks)
-        console.log(tracks)
       } catch (error: any) {
-        navigate('/error', { state: { status: error.response.status } })
+        navigate('/error', {
+          state: {
+            status: error.response.status,
+            statusText: error.response.statusText,
+          },
+        })
       }
     }
 

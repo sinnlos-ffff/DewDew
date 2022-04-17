@@ -63,11 +63,12 @@
 }
 
 .glassbutton-mini {
-  margin: 0.5rem 0.5rem;
-  padding: 0.5rem;
+  margin: 0.5rem 0.3rem;
+  padding: 0.2rem 0.5rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  font-size: 1rem;
 }
 
 .header {
@@ -290,6 +291,15 @@
   }
 }
 
+.category-wrap {
+  margin: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 @media (min-width: 335px) and (max-width: 757px) {
   .glassboard {
     width: 80%;
@@ -331,7 +341,7 @@
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .glassboard {
-    width: 66%;
+    width: 80%;
   }
   .heading-container {
     width: 75%;
@@ -341,6 +351,11 @@
   }
   .glassbutton, .glassbutton-mini {
     width: 60%;
+  }
+  .glassbutton-mini {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }
 
@@ -353,6 +368,11 @@
   }
   .glassbutton, .glassbutton-mini {
     width: 50%;
+  }
+  .glassbutton-mini {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }
 

@@ -6,6 +6,8 @@
 @import './artist-info';
 @import './preview-player';
 @import './loader';
+@import './category';
+
 @include mobile {
   .glassboard {
     width: 80%;
@@ -40,7 +42,7 @@
 
 @include tablet {
   .glassboard {
-    width: 66%;
+    width: 80%;
   }
   .heading-container {
     width: 75%;
@@ -51,6 +53,9 @@
   }
   .glassbutton {
     width: 60%;
+  }
+  .glassbutton-mini {
+    width: fit-content;
   }
 }
 
@@ -63,6 +68,9 @@
   }
   .glassbutton {
     width: 50%;
+  }
+  .glassbutton-mini {
+    width: fit-content;
   }
 }
 

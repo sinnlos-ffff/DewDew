@@ -29,7 +29,7 @@ function GlassMainboard() {
         Released new music
       </button>
       <p>Or choose from one of the categories</p>
-      <div>
+      <div className="category-wrap">
         {categories &&
           categories.map((c: any, idx: number) => {
             const name = c.name

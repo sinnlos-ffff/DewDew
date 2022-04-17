@@ -1,22 +1,28 @@
-import { ReactNode } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 
-interface LocationType {
-  [x: string]: ReactNode
-  state: {
-    status: number
-  }
+type LocationType = {
+  status: number
+  statusText: string
 }
 
 function ErrorPage() {
-  const state = (useLocation().state as LocationType) || { status: 404 }
+  const navigate = useNavigate()
+  const state = (useLocation().state as LocationType) || {
+    status: 404,
+    statusText: null,
+  }
 
   return (
     <>
       <Header />
       <div className="heading-container">
-        <h1 id="heading">{state.status}</h1>
+        <h1 id="heading">{`${state.status} : ${state.statusText}`}</h1>
+      </div>
+      <div style={{ display: 'flex' }}>
+        <button className="glassbutton" onClick={() => navigate('/')}>
+          Go to Main
+        </button>
       </div>
     </>
   )
