@@ -26,7 +26,7 @@ sp = spotipy.Spotify(auth_manager=auth_manager)
 
 class GetCategoriesAPIView(APIView):
     def get(self, request):
-        categories = sp.categories(locale="KR")
+        categories = sp.categories(country="KR")
         return Response({
             'categories': categories
         })
@@ -46,7 +46,8 @@ class PickArtistAPIView(APIView):
             artist_uri = artists[pick_num]["artists"][0]["uri"]
 
         else:
-            playlist_id = sp.category_playlists(category_id=slug, country='KR', limit=1)["playlists"]['items'][0]["id"]
+            playlist = sp.category_playlists(category_id=slug, country='KR')["playlists"]['items']
+            playlist_id = playlist[0]["id"]
             tracks = sp.playlist_items(playlist_id=playlist_id,limit=50)["items"]
             pick_num = random.randint(0,49)
             pick = tracks[pick_num]["track"]["album"]
