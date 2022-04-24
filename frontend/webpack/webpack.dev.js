@@ -8,6 +8,10 @@ module.exports = {
     hot: true,
     open: true,
     historyApiFallback: true,
+    allowedHosts: 'all',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
   },
   plugins: [new ReactRefreshWebpackPlugin()],
 }

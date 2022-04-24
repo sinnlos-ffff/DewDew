@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-hp26&!mc_2qp$fs2o*3@=r0ra=mr1m#2o1@-(q8yp@ur_$@g8i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'main',
 ]
@@ -54,11 +55,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 
-CORS_ALLOW_CREDENTIALS = False
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8080/',
-    '127.0.0.1:8080'
-)
 
 TEMPLATES = [
     {
@@ -130,3 +126,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True
